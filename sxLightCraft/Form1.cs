@@ -30,7 +30,8 @@ namespace sxLightCraft
         }
 
         private async void button2_Click(object sender, EventArgs e)
-        {
+        { 
+            // test
             this.Text = "sxLightCraft | Launching Minecraft";
             MessageBox.Show("Minecraft will be started soon! if you dont have your selected version installed it can load longer!", "sxLightCraft", MessageBoxButtons.OK, MessageBoxIcon.Information);
             // disable the button so if you are running minecraft you cant press this again
