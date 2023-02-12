@@ -120,5 +120,16 @@ namespace sxLightCraft
             label5.Visible = true;
             textBox2.Visible = true;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MicrosoftLoginForm loginForm = new MicrosoftLoginForm();
+            loginForm.ShowLogoutDialog();
+        }
     }
 }
