@@ -1,6 +1,8 @@
 # sxLightCraft
 A simple, open source and lightweight Minecraft Launcher
 
+![](gui.png)
+
 # Requriments
 - .NET Framework 4.7.2
 - Java
