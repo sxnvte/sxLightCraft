@@ -29,8 +29,11 @@ namespace sxLightCraft
 
         }
 
+        bool btn2Clicked;
+
         private async void button2_Click(object sender, EventArgs e)
         {
+            bool btn2Clicked = true;
             this.Text = "sxLightCraft | Launching Minecraft";
             MessageBox.Show("Minecraft will be started soon! if you dont have your selected version installed it can load longer!", "sxLightCraft", MessageBoxButtons.OK, MessageBoxIcon.Information);
             // disable the button so if you are running minecraft you cant press this again
@@ -101,8 +104,6 @@ namespace sxLightCraft
 
             var process = await launcher.CreateProcessAsync(comboBox1.Text, launchOption);
             process.Start();
-           
-
             
         }
 
@@ -119,6 +120,11 @@ namespace sxLightCraft
             button1.Enabled = false;
             label5.Visible = true;
             textBox2.Visible = true;
+
+            if (checkBox1.Checked && btn2Clicked)
+            {
+                MessageBox.Show("");
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
