@@ -27,7 +27,7 @@ namespace sxLightCraft
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Pro Tip: you can write in this box the folder name of one of your versions in the versions folder so you can use custom versions!", "sxLightCraft", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         bool btn2Clicked;
