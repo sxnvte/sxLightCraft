@@ -1,5 +1,6 @@
 # sxLightCraft | Canary Build
 A simple, open source and lightweight Minecraft Launcher
+Canary build gives the fresh look and features but it may be unstable
 
 ![](gui.png)
 
