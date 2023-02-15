@@ -1,4 +1,6 @@
-﻿using CmlLib.Core;
+﻿using CmlLib.Core.Auth.Microsoft.UI.WinForm;
+using CmlLib.Core.Auth;
+using CmlLib.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,33 +10,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CmlLib.Core;
-using CmlLib.Core.Auth;
-using CmlLib.Core.Auth.Microsoft.UI.WinForm;
+using static System.Collections.Specialized.BitVector32;
 using System.Diagnostics;
 
 namespace sxLightCraft
 {
-    // TODO: make cracked checkbox work
-    
-    public partial class Form1 : Form
+    public partial class CrackedForm : Form
     {
-        
-        public Form1()
+        public CrackedForm()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            checkBox1.Checked = true;
         }
-
-        bool btn2Clicked;
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            bool btn2Clicked = true;
             timer1.Start();
             this.Text = "sxLightCraft | Launching Minecraft";
             MessageBox.Show("Minecraft will be started soon! if you dont have your selected version installed it can load longer!", "sxLightCraft", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -43,8 +37,6 @@ namespace sxLightCraft
 
             int ram = Convert.ToInt32(textBox1.Text);
 
-            MicrosoftLoginForm loginForm = new MicrosoftLoginForm();
-            MSession session = await loginForm.ShowLoginDialog();
 
             // increase connection limit to fast download
             System.Net.ServicePointManager.DefaultConnectionLimit = 256;
@@ -75,7 +67,7 @@ namespace sxLightCraft
             var launchOption = new MLaunchOption
             {
                 MaximumRamMb = ram,
-                Session = session, // replace this with login session value. ex) Session = MSession.GetOfflineSession("hello")
+                Session = MSession.GetOfflineSession(textBox2.Text)
 
 
 
@@ -94,33 +86,6 @@ namespace sxLightCraft
 
             var process = await launcher.CreateProcessAsync(comboBox1.Text, launchOption);
             process.Start();
-            
-        }
-
-        private async void button1_Click(object sender, EventArgs e)
-        {
-            MicrosoftLoginForm loginForm = new MicrosoftLoginForm();
-            MSession session = await loginForm.ShowLoginDialog();
-            MessageBox.Show("Login Success!");
-            button1.Enabled = false;
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            this.Hide();
-            CrackedForm cf = new CrackedForm();
-            cf.Show();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            MicrosoftLoginForm loginForm = new MicrosoftLoginForm();
-            loginForm.ShowLogoutDialog();
         }
 
         private async void timer1_Tick(object sender, EventArgs e)
