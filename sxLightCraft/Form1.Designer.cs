@@ -58,11 +58,6 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "1.19.3",
-            "1.19.2",
-            "1.19.1",
-            "1.19"});
             this.comboBox1.Location = new System.Drawing.Point(95, 46);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);

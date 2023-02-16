@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Collections.Specialized.BitVector32;
 using System.Diagnostics;
+using System.IO;
 
 namespace sxLightCraft
 {
@@ -102,5 +103,26 @@ namespace sxLightCraft
                 this.Text = "sxLightCraft | Launching Minecraft";
             }
         }
+
+        private void CrackedForm_Load(object sender, EventArgs e)
+        {
+
+            string minecraftDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft", "versions");
+            string[] directories = Directory.GetDirectories(minecraftDir);
+
+
+            comboBox1.Items.Clear();
+
+
+            foreach (string directory in directories)
+            {
+
+                string folderName = new DirectoryInfo(directory).Name;
+
+
+                comboBox1.Items.Add(folderName);
+            }
+        }
+    }
     }
 }

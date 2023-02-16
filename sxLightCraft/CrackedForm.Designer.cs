@@ -175,6 +175,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "sxLightCraft";
+            this.Load += new System.EventHandler(this.CrackedForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -12,6 +12,7 @@ using CmlLib.Core;
 using CmlLib.Core.Auth;
 using CmlLib.Core.Auth.Microsoft.UI.WinForm;
 using System.Diagnostics;
+using System.IO;
 
 namespace sxLightCraft
 {
@@ -19,7 +20,6 @@ namespace sxLightCraft
     
     public partial class Form1 : Form
     {
-        
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +31,25 @@ namespace sxLightCraft
         }
 
         bool btn2Clicked;
+
+        private void GetVersiosnNames()
+        {
+            string minecraftDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft", "versions");
+            string[] directories = Directory.GetDirectories(minecraftDir);
+
+            // Wyczyść ComboBox przed dodaniem nowych elementów
+            comboBox1.Items.Clear();
+
+            // Dodaj każdy folder do ComboBoxa
+            foreach (string directory in directories)
+            {
+                // Pobierz nazwę folderu
+                string folderName = new DirectoryInfo(directory).Name;
+
+                // Dodaj nazwę folderu do ComboBoxa
+                comboBox1.Items.Add(folderName);
+            }
+        }
 
         private async void button2_Click(object sender, EventArgs e)
         {
@@ -114,7 +133,22 @@ namespace sxLightCraft
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            string minecraftDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft", "versions");
+            string[] directories = Directory.GetDirectories(minecraftDir);
 
+            // Wyczyść ComboBox przed dodaniem nowych elementów
+            comboBox1.Items.Clear();
+
+            // Dodaj każdy folder do ComboBoxa
+            foreach (string directory in directories)
+            {
+                // Pobierz nazwę folderu
+                string folderName = new DirectoryInfo(directory).Name;
+
+                // Dodaj nazwę folderu do ComboBoxa
+                comboBox1.Items.Add(folderName);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
