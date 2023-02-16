@@ -13,6 +13,7 @@ using CmlLib.Core.Auth;
 using CmlLib.Core.Auth.Microsoft.UI.WinForm;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 
 namespace sxLightCraft
 {
@@ -149,6 +150,31 @@ namespace sxLightCraft
 
                
                 comboBox1.Items.Add(folderName);
+            }
+
+            // auto update
+
+            WebClient wb = new WebClient();
+
+            try
+            {
+                if (!wb.DownloadString("https://raw.githubusercontent.com/sxnvte/sxLightCraft/master/update-version").Contains("1.0"))
+                {
+                    DialogResult dialogResult = MessageBox.Show("There is an update for sxLightCraft! do you want to install it?", "sxLightCraft", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Process.Start("");
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        //nic
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("sxLightCraft has detected an error: " + ex.Message + "; If this error keeps happening please report an issue on Github or contact the creator", "sxLightCraft", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
         }
 
