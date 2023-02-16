@@ -133,7 +133,8 @@ namespace sxLightCraft
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            // checker for it is minecraft running
+            // timer2.Start();
             string minecraftDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft", "versions");
             string[] directories = Directory.GetDirectories(minecraftDir);
 
@@ -165,6 +166,19 @@ namespace sxLightCraft
                 await Task.Delay(2500);
                 this.Text = "sxLightCraft | Minecraft Running";
                 timer1.Stop();
+            }
+            else
+            {
+                this.Text = "sxLightCraft | Launching Minecraft";
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            Process[] pname = Process.GetProcessesByName("LWJGL");
+            if (pname.Length == 0)
+            {
+                this.Text = "sxLightCraft";
             }
             else
             {

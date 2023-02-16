@@ -123,6 +123,11 @@ namespace sxLightCraft
                 comboBox1.Items.Add(folderName);
             }
         }
+
+        private void CrackedForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
     
 }
