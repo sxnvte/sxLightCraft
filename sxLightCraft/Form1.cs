@@ -137,16 +137,16 @@ namespace sxLightCraft
             string minecraftDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft", "versions");
             string[] directories = Directory.GetDirectories(minecraftDir);
 
-            // Wyczyść ComboBox przed dodaniem nowych elementów
+            
             comboBox1.Items.Clear();
 
-            // Dodaj każdy folder do ComboBoxa
+            
             foreach (string directory in directories)
             {
-                // Pobierz nazwę folderu
+                
                 string folderName = new DirectoryInfo(directory).Name;
 
-                // Dodaj nazwę folderu do ComboBoxa
+               
                 comboBox1.Items.Add(folderName);
             }
         }
