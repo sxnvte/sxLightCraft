@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="sxLightCraft | Canary Build" Height="450" Width="800" Background="#141414" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Label Content="sxLightCraft" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top" Height="57" Width="168" Foreground="#FFFFFF" FontSize="30" Background="#00000000">
+            <Label.Effect>
+                <DropShadowEffect Direction="50" Opacity="0.5" BlurRadius="100"/>
+            </Label.Effect>
+        </Label>
+        <Label Content="CANARY BUILD" HorizontalAlignment="Center" Margin="0,93,0,0" VerticalAlignment="Top" Height="31" Width="112" Foreground="#FFC312" FontSize="15" Background="#00000000">
+            <Label.Effect>
+                <DropShadowEffect Direction="50" Opacity="0.5" BlurRadius="100"/>
+            </Label.Effect>
+        </Label>
+        <Button Content="X" FontSize="20" HorizontalAlignment="Center" Height="31" Margin="722,18,0,0" VerticalAlignment="Top" Width="36" Click="Button_Click" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
+
     </Grid>
 </Window>
